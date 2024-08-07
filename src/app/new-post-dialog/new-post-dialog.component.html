@@ -1,0 +1,15 @@
+<form (submit)="addNewPost()">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" [(ngModel)]="title" name="title">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Body</mat-label>
+      <textarea matInput placeholder="Body" [(ngModel)]="body" name="body"></textarea>
+    </mat-form-field>
+    <button color="primary" mat-raised-button type="submit">
+        Add Post
+    </button>
+</form>
+

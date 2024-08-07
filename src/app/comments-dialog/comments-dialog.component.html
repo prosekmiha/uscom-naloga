@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngIf="comments.comments.length == 0">
+        <h4>No comments</h4>
+    </div> 
+    <div *ngIf="comments">
+        <mat-card class="comments" *ngFor="let comment of comments.comments">
+            <mat-card-content class="comment">
+                <div class="comment-content">
+                    <div class="user-container">
+                        <p class="fullName">{{ comment.user.fullName }}</p>
+                        <p class="username">{{ comment.user.username }}</p>
+                    </div>
+                    <p class="body">{{ comment.body }}</p>
+                </div>
+                <button color="primary" mat-button (click)="openEditComment(comment.id)">
+                    Edit
+                </button>   
+            </mat-card-content>
+
+        </mat-card>
+      
+    </div>
+    <div class="new-button-container">
+        <button color="primary" mat-button (click)="openNewCommentDialog(postId)">
+            New Comment
+        </button>  
+    </div>
+</div>

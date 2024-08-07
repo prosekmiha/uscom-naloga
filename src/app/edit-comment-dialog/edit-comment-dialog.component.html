@@ -1,0 +1,10 @@
+<form (submit)="editComment()">
+    <mat-form-field>
+      <mat-label>Comment</mat-label>
+      <input matInput placeholder="Title" [(ngModel)]="commentEdit.body" name="comment">
+    </mat-form-field>
+  
+    <button color="primary" mat-raised-button type="submit">
+        Edit
+    </button>
+</form>

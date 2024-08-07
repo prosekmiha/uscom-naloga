@@ -18,15 +18,12 @@ export class EditCommentDialogComponent {
   //Variable for changed comment data.
   commentEdit: any = { body: "" };
   //Comment Id in comment array
-  commentEditId: number;
-
-  //Variable for username data
-  g:Globals;  
+  commentEditId: number; 
 
   onSubmit = new EventEmitter();
 
-  constructor( @Inject(MAT_DIALOG_DATA)public data: { commentId: number, comments: any }, private _snackBar: MatSnackBar, public globals: Globals ) {
-    this.g = globals;
+  constructor( @Inject(MAT_DIALOG_DATA)public data: { commentId: number, comments: any }, private _snackBar: MatSnackBar, public g: Globals ) {
+    this.g;
     this.comments = this.data.comments;
     this.commentId = this.data.commentId;
   }
@@ -61,7 +58,7 @@ export class EditCommentDialogComponent {
     
   }
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   openSnackBar(error: string) {

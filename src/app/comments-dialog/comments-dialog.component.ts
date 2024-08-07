@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { NewCommentDialogComponent } from '../new-comment-dialog/new-comment-dialog.component';
 import { EditCommentDialogComponent } from '../edit-comment-dialog/edit-comment-dialog.component';
+import { Globals } from '../globals';
 
 
 
@@ -17,15 +18,15 @@ export class CommentsDialogComponent {
   //Variable for the comments of the selected post.
   comments: any;
 
-
-
   constructor(
     private http: HttpClient,
     @Inject(MAT_DIALOG_DATA)
     public data: { postId: number }, 
-    private dialogRef : MatDialog
+    private dialogRef : MatDialog,
+    public g: Globals
   ) {
     this.postId = this.data.postId;
+    this.g;
   }
 
   ngOnInit() {

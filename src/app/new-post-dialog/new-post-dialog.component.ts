@@ -16,11 +16,9 @@ export class NewPostDialogComponent {
 
   onSubmit = new EventEmitter();
 
-  //Variable for username data
-  g: Globals;
 
-  constructor( @Inject(MAT_DIALOG_DATA)public data: any, private _snackBar: MatSnackBar, public globals: Globals ) {
-    this.g = globals;
+  constructor( @Inject(MAT_DIALOG_DATA)public data: any, private _snackBar: MatSnackBar, public g: Globals ) {
+    this.g;
   }
 
   addNewPost() {
@@ -35,7 +33,7 @@ export class NewPostDialogComponent {
     
   }
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   openSnackBar() {

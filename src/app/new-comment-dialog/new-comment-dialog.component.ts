@@ -18,11 +18,8 @@ export class NewCommentDialogComponent {
 
   onSubmit = new EventEmitter();
 
-  //Variable for username data
-  g: Globals;
-
-  constructor( @Inject(MAT_DIALOG_DATA)public data: { postId: number, comments: any }, private _snackBar: MatSnackBar, public globals: Globals ) {
-    this.g = globals;
+  constructor( @Inject(MAT_DIALOG_DATA)public data: { postId: number, comments: any }, private _snackBar: MatSnackBar, public g: Globals ) {
+    this.g;
     this.postId = this.data.postId;
   }
 
@@ -37,7 +34,7 @@ export class NewCommentDialogComponent {
     
   }
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   openSnackBar() {

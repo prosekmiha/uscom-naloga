@@ -10,6 +10,7 @@
 <div class="container" *ngIf="posts">
   <div class="posts" *ngIf="posts">
     <mat-card class="post" *ngFor="let post of pageSlice">
+      
       <mat-card-content>
         <p class="title">{{ post.title }}</p>
         <p class="body">{{ post.body }}</p>
@@ -18,7 +19,7 @@
         <button color="primary" mat-button (click)="openCommentsDialog(post.id)">
           Comments
         </button>   
-        <button color="primary" mat-button (click)="openEditPostDialog(post.id)">
+        <button color="primary" mat-button *ngIf="post.userId == g.usernameId" (click)="openEditPostDialog(post.id)">
           Edit
         </button>   
       </div>

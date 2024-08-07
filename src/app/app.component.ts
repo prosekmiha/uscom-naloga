@@ -23,15 +23,16 @@ export class AppComponent {
   //Current oage variable for pagination
   currentPage: number = 0;
 
-  //Variable for username data
-  g: Globals;
 
-  constructor(private http: HttpClient, private dialogRef : MatDialog, public globals: Globals) { 
-    this.g = globals;
+  constructor(private http: HttpClient, private dialogRef : MatDialog, public g: Globals) { 
+    this.g;
   } 
-    ngOnInit() { 
-      
+    ngOnInit() {      
       //Data fetch
+      this.dataFetch();           
+    } 
+
+    dataFetch() {
       this.http.get('https://dummyjson.com/posts').subscribe( 
         (result) => { 
           this.posts = result
@@ -39,9 +40,7 @@ export class AppComponent {
           this.pageSlice = this.posts.posts.slice(0, 10)
         } 
       )
-      
-        
-    } 
+    }
 
     openCommentsDialog(postId: number) {
       //Open comments dialog and send id of clicked post.
@@ -59,7 +58,9 @@ export class AppComponent {
       });
       //Add new post to posts array.
       const subscribeDialog = currentDialog.componentInstance.onSubmit.subscribe((data) => {
-        this.posts.posts = [...this.posts.posts, data];
+        //this.posts.posts = [...this.posts.posts, data];
+        this.posts.posts.unshift(data)
+        this.pageSlice = this.posts.posts.slice(0, 10)
         currentDialog.close()
       });
       currentDialog.afterClosed().subscribe(result => {

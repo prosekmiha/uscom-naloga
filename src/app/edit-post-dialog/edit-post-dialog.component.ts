@@ -20,13 +20,11 @@ export class EditPostDialogComponent {
 
   onSubmit = new EventEmitter();
 
-  //Variable for username data
-  g:Globals;
 
-  constructor( @Inject(MAT_DIALOG_DATA)public data: { postId: number, posts: any }, private _snackBar: MatSnackBar, public globals: Globals ) {
+  constructor( @Inject(MAT_DIALOG_DATA)public data: { postId: number, posts: any }, private _snackBar: MatSnackBar, public g: Globals ) {
     this.postId = this.data.postId;
     this.posts = this.data.posts;
-    this.g = globals;
+    this.g;
   }
 
   ngOnInit() {
@@ -59,7 +57,7 @@ export class EditPostDialogComponent {
     
   }
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   openSnackBar(error: string) {

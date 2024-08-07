@@ -12,7 +12,7 @@
                     </div>
                     <p class="body">{{ comment.body }}</p>
                 </div>
-                <button color="primary" mat-button (click)="openEditComment(comment.id)">
+                <button color="primary" mat-button *ngIf="comment.user.id == g.usernameId" (click)="openEditComment(comment.id)">
                     Edit
                 </button>   
             </mat-card-content>
